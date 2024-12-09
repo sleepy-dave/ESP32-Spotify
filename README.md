@@ -1,6 +1,5 @@
 > [!NOTE]
 > Work in progress!
-
 # Spotify Track Display with ESP32 and SSD1306 OLED
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
