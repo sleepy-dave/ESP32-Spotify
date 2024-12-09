@@ -17,7 +17,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 const char* ssid = "WLAN-NAME HERE";
 const char* password = "WLAN PASSWORD HERE";
 
-// Spotify API URL (link zur spotifyAPI.php)
+// Spotify API URL (link to spotifyAPI.php)
 const char* spotifyAPIUrl = "https://example.com/spotify/spotifyAPI.php"; 
 
 // Icon
@@ -97,8 +97,6 @@ void displayTask(void *pvParameters) {
         display.setFont(&FreeSans9pt7b);
         display.setTextSize(1);
         int y = 22; 
-        Serial.print("[DisplayTask] ScrollX: ");
-        Serial.println(scrollX);
 
         display.setCursor(scrollX, y);
         display.print(currentTrackText);
@@ -197,6 +195,10 @@ void httpTask(void *pvParameters) {
       WiFi.begin(ssid, password);
     }
 
+    UBaseType_t highWaterMark = uxTaskGetStackHighWaterMark(NULL);
+    Serial.print("HTTPTask High Water Mark: ");
+    Serial.println(highWaterMark);
+
     Serial.println("[HTTPTask] Warte bis zum nächsten Fetch...");
     vTaskDelay(pdMS_TO_TICKS(fetchIntervalMs));
   }
@@ -239,7 +241,7 @@ void setup() {
     "DisplayTask",
     4096,
     NULL,
-    1,
+    2,
     &displayTaskHandle,
     1
   );
