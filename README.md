@@ -23,13 +23,15 @@ This project displays the currently playing Spotify track on an SSD1306 OLED dis
 
 ## ESP32 Setup
 1. **Clone the Repository:**
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
-2. **Insert Your Credentials:**
+   ```
+   git clone https://github.com/sleepy-dave/ESP32-Spotify.git
+   cd ESP32-Spotify
+   ```
+3. **Insert Your Credentials:**
    - Open the `spotifyAPI.php` file and add your Spotify Client ID and Client Secret.
-3. **Connect the Display:**
+4. **Connect the Display:**
    - Connect the SSD1306 OLED display to the ESP32 using the I2C pins (SDA and SCL).
-4. **Flash the Code:**
+5. **Flash the Code:**
    - Use PlatformIO or the Arduino IDE to upload the code to the ESP32 board.
 
 ## Spotify (For Developers)
@@ -43,7 +45,9 @@ This project displays the currently playing Spotify track on an SSD1306 OLED dis
    - Navigate to your app's dashboard to find your "Client ID" and "Client Secret." Save these for the next steps.
 5. **Generate the Authorization URL:**
    - Construct the authorization URL using your Client ID and Redirect URI. Replace your-client-id and your-redirect-uri with your actual values.
+
      `https://accounts.spotify.com/authorize?client_id=your-client-id&response_type=code&redirect_uri=your-redirect-uri&scope=user-read-currently-playing`
+
      (Note: Ensure that the redirect_uri is URL-encoded. You can use online tools or programming libraries to encode it properly.)
 
 ## Webserver Setup
